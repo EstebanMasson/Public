@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include 'header';?>
 <title>NJ forum Hub</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
