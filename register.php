@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<?php include 'header';?>
 <style>
 li {listt-style: none;}
 
