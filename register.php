@@ -2,7 +2,6 @@
 <html>
 <head>
 
-
 <style>
 li {listt-style: none;}
 
@@ -23,17 +22,8 @@ li {listt-style: none;}
    <body bgcolor = "#FFFFFF">
 	<div class = "tabContainer">
     <div class= "buttonContainer">
-	<form action = "http://localhost/environment.php">
-		<button type="submit">Environment</button>		
-	</form>
-        <form action = "http://localhost/sustainability.php">
-		<button type="submit">Sustainability</button>		
-	</form>
         <form action = "http://localhost/forums.php">
 		<button type="submit">Forums</button>		
-	</form>
-        <form action = "http://localhost/register.php">
-		<button type="submit">Register</button>		
 	</form>
     </div>
 </div>
@@ -71,7 +61,12 @@ require_once ('users.php');
 <?php
 
    session_start();
-   
+  $dbhost = "localhost";
+  $dbuser = "root";
+  $dbpass = "";
+  $db = "NJforum";
+
+  $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
    if($_SERVER["REQUEST_METHOD"] == "USERS") {
       // username and password sent from form 
       
@@ -87,7 +82,7 @@ require_once ('users.php');
       
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
-      if($count == 1) {
+      if($count == 1 && mysqli_query($conn, $sql)) {
          session_register("myusername");
          $_SESSION['login_user'] = $myusername;
          
@@ -97,7 +92,6 @@ require_once ('users.php');
       }
    }
 ?>
-
 
 
 

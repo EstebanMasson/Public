@@ -47,14 +47,22 @@ $db = "NJforum";
 
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
-if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['fName']) && isset($_POST['fName']))
+if(!(empty($_POST['Username']) || empty($_POST['Password']) || empty($_POST['fName']) || empty($_POST['fName'])))
 {
 	$Username = $_POST['Username'];
 	$Password = $_POST['Password'];
 	$fName = $_POST['fName'];
 	$lName = $_POST['lName'];
 
-	$sql = "INSERT INTO USERS (Username, Password, fName, lName) VALUES ('$Username','$Password','$fName','$lName')";
+	$query = "SELECT * FROM USERS WHERE Username = '$Username'";
+	$result = mysqli_query($conn, $query);
+	if(mysqli_num_rows($result)>0)
+	{
+	   echo "ERROR: Username Already Exist";
+	} else {
+
+	$sql = "INSERT INTO USERS (Username, Password, fName, lName) VALUES
+	('$Username','$Password','$fName','$lName')";
 
 	if(mysqli_query($conn, $sql)){
     	echo "Record added Succesfully";
@@ -63,7 +71,8 @@ if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['fName
 	}
 
 	header("Location: showTables.php");
-	exit;
+	exit();
+	}
 }
 
  if(empty($Username) || empty($Password) || empty($fName) || empty($lName)){
