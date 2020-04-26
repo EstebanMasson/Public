@@ -8,8 +8,8 @@ li {listt-style: none;}
 </style>
 </head>
 
-<body>
 
+<body style = "background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg);">
 
 <h1 style="text-align:center" class="title">NJforum Website</h1>
 <html>
@@ -22,10 +22,13 @@ li {listt-style: none;}
    <body bgcolor = "#FFFFFF">
 	<div class = "tabContainer">
     <div class= "buttonContainer">
-        <form action = "http://localhost/forums.php">
-		<button type="submit">Forums</button>		
-	</form>
-    </div>
+    <form action = "http://srhub.org">
+   		 <button type = "submit" >NJSR Hub Website</button>
+    </form>
+    <form action = "http://localhost/forums.php">
+   		 <button type = "submit" >Forums</button>
+    </form>
+	</div>
 </div>
 
       <div>

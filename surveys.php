@@ -48,7 +48,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
     
 ?>
 
-<table border = "1px" style= "width:600px; line-height:40px;">
+<table border = "1px" style= "width:100%; line-height:40px;">
 
 <t>
 <th colspan = "8"> <h2>Surveys </h2></th>

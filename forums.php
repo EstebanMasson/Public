@@ -31,10 +31,6 @@ li {listt-style: none;}
 
 
 
-
-
-
-
 <?php
 $dbhost = "localhost";
 $dbuser = "root";
@@ -51,7 +47,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
     
 ?>
 
-<table border = "1px" style= "width:600px; line-height:40px;">
+<table border = "1px" style= "width:100%; line-height:40px;">
 
 <t>
 <th colspan = "8"> <h2>Forums </h2></th>
@@ -76,7 +72,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
     
 ?>
 
-<table border = "1px" style= "width:600px; line-height:30px;">
+<table border = "1px" style= "width:100%; line-height:30px;">
 <t>
 <th colspan = "8"> <h2>Posts </h2></th>
 
@@ -88,8 +84,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 	<th> Forum Title </th>
 	<th> Post </th>
     <th> Category </th>
-    <th> Day </th>
-    <th> Month </th>
+
     
 </tr>
 
@@ -103,8 +98,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 	<td><?php echo $rows["fTitle"]; ?></td>
 	<td><?php echo $rows["Data"]; ?></td>
 	<td><?php echo $rows["Category"]; ?></td>
-	<td><?php echo $rows["pDay"]; ?></td>
-	<td><?php echo $rows["pMonth"]; ?></td>
+
 
 
 	</tr>

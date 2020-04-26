@@ -48,7 +48,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
     
 ?>
 
-<table border = "1px" style= "width:1050px; line-height:40px;">
+<table border = "1px" style= "width:100%; line-height:40px;">
 
 <t>
 <th colspan = "8"> <h2>Forums </h2></th>
@@ -77,7 +77,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
     
 ?>
 
-<table border = "1px" style= "width:1050px; line-height:30px;">
+<table border = "1px" style= "width:100%; line-height:30px;">
 <t>
 <th colspan = "15"> <h2>Posts</h2></th>
 
@@ -117,7 +117,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
     
 ?>
 
-<table border = "1px" style= "width:1050px; line-height:40px;">
+<table border = "1px" style= "width:100%; line-height:40px;">
 
 <t>
 <th colspan = "8"> <h2>Comments </h2></th>
