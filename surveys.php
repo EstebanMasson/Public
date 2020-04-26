@@ -14,8 +14,14 @@ li {listt-style: none;}
 <h1 style="text-align:center" class="title">NJforum Website</h1>
 <div class = "tabContainer">
 	<div class= "buttonContainer">
+    <form action = "http://srhub.org">
+   		 <button type = "submit" >NJSR Hub Website</button>
+    </form>
+    <form action = "http://localhost/createUser.php">
+   		 <button type = "submit" >Register/Login</button>
+    </form>
 
-    	<form action = "http://localhost/forums.php">
+    	<form action = "http://localhost/showTables.php">
     	<button type="submit">Go Back</button>   	 
 	</form>
 	</div>
@@ -79,4 +85,3 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
 </body>
 </html>
-
