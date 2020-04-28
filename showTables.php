@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include 'header';?>
 <title>NJ forum Hub</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -10,19 +11,19 @@ li {listt-style: none;}
 </style>
 </head>
 
-<body style = "background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg);">
+<body style = "background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg);"> <!--Sets the background image -->
 <h1 style="text-align:center" class="title">NJforum Website</h1>
 <div class = "tabContainer">
 	<div class= "buttonContainer">
     <form action = "http://srhub.org">
-   		 <button type = "submit" >NJSR Hub Website</button>
+   		 <button type = "submit" >NJSR Hub Website</button> <!--Button takes user to NJSR Website -->
     </form>
     <form action = "http://localhost/createUser.php">
-   		 <button type = "submit" >Register/Login</button>
+   		 <button type = "submit" >Register/Login</button> <!--Button takes user back to Login page -->
     </form>
 
     	<form action = "http://localhost/surveys.php">
-    	<button type="submit">Surveys</button>   	 
+    	<button type="submit">Surveys</button>   <!--Button takes user to Surveys page to view surveys -->
 	</form>
  
 	</div>
@@ -35,9 +36,9 @@ li {listt-style: none;}
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$db = "NJforum";
+$db = "NJforum"; //having variables makes information easy to change in future
 
-$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $db); //connects website to database called NJforum
 
 ?>
 
@@ -48,7 +49,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
     
 ?>
 
-<table border = "1px" style= "width:100%; line-height:40px;">
+<table border = "1px" style= "width:100%; line-height:40px;"> <!--makes a table for forums -->
 
 <t>
 <th colspan = "8"> <h2>Forums </h2></th>
@@ -61,7 +62,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
 ?>
 	<tr>
-	<td><?php echo $rows["Title"]; ?></td>
+	<td><?php echo $rows["Title"]; ?></td> <!--displays the forum table -->
 	</tr>
  
 <?php }
@@ -79,7 +80,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
 <table border = "1px" style= "width:100%; line-height:30px;">
 <t>
-<th colspan = "15"> <h2>Posts</h2></th>
+<th colspan = "15"> <h2>Posts</h2></th> <!-- displays posts in a table-->
 
 </t>
 
@@ -117,7 +118,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
     
 ?>
 
-<table border = "1px" style= "width:100%; line-height:40px;">
+<table border = "1px" style= "width:100%; line-height:40px;"> <!--makes a comments table-->
 
 <t>
 <th colspan = "8"> <h2>Comments </h2></th>
@@ -128,7 +129,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 	<th> Post Author </th>
 	<th> Post Time </th>
 	<th> Comment Author </th>
-	<th> Comment Time </th>
+	<th> Comment Time </th> <!-- displays comments in a table-->
     <th> Comment </th>
     
 </tr>
@@ -151,7 +152,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 ?>
 
 
-<div style = "float: left;">
+<div style = "float: left;"> <!-- form for user to insert a post-->
 <h2>Insert A Post</h2>
 <ul>
 <form name="insert" action="showTables.php" method="POST" autocomplete = "off" >
@@ -165,9 +166,9 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 <input type="submit" value="submit"/>
 </form>
 </ul>
-</div>
+</div> 
 
-<div style = "float: left;">
+<div style = "float: left;"> <!--form for user to insert a comment -->
 <h2>Insert A Comment</h2>
 <ul>
 <form name="insert" action="showTables.php" method="POST" autocomplete = "off" >
@@ -188,8 +189,8 @@ if(isset($_POST['postAuthor']) && isset($_POST['fTitle']) && isset($_POST['Data'
 	$fTitle = $_POST['fTitle'];
 	$Data = $_POST['Data'];
    
-
-	$sql = "INSERT INTO POSTS (postAuthor,fTitle,Data) VALUES ('$postAuthor', '$fTitle','$Data')";
+	//the post the user inserts will be reflected in the database
+	$sql = "INSERT INTO POSTS (postAuthor,fTitle,Data) VALUES ('$postAuthor', '$fTitle','$Data')"; 
 
 	if(mysqli_query($conn, $sql)){
     	echo "Record added Succesfully";
@@ -206,7 +207,7 @@ if(isset($_POST['cAuthor']) && isset($_POST['cData']))
 	$cAuthor = $_POST['cAuthor'];
 	$cData = $_POST['cData'];
 
- 
+ 	//the comments user inputs will be reflected in the database
 	$sql = "INSERT INTO COMMENTS (pAuthor,cAuthor,cData) VALUES ('$pAuthor','$cAuthor', '$cData')";
 
 	if(mysqli_query($conn, $sql)){
