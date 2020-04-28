@@ -3,7 +3,7 @@
 <head>
 
 <!--Background image and header for tab navigation-->
-<?php include 'header.php';?>
+<?php include 'headerForums.php';?>
 
 <title>NJ forum Hub</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
