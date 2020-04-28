@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<?php include 'header';?>
 <title>NJ forum Hub</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -13,26 +12,11 @@ li {listt-style: none;}
 
 <body style = "background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg);">
 <h1 style="text-align:center" class="title">NJforum Website</h1>
-<div class = "tabContainer">
-	<div class= "buttonContainer">
-    <form action = "http://srhub.org">
-   		 <button type = "submit" >NJSR Hub Website</button>
-    </form>
-    <form action = "http://localhost/createUser.php">
-   		 <button type = "submit" >Register/Login</button>
-    </form>
-
-    	<form action = "http://localhost/createUser.php">
-    	<button type="submit">Go Back</button>   	 
-	</form>
-	</div>
-</div>
-
-<h1 style="text-align:center" class="title"> Forums </h1>
 
 
 
 <?php
+require ('header.php');
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
@@ -48,7 +32,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
     
 ?>
 
-<table border = "1px" style= "width:100%; line-height:40px;">
+<table border = "1px" style= "width:600px; line-height:40px;">
 
 <t>
 <th colspan = "8"> <h2>Forums </h2></th>
@@ -61,56 +45,15 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
 ?>
 	<tr>
-	<td><?php echo $rows["Title"]; ?></td>
+	<td class = "mdc-data-table_cell"><?php echo '<a target = "_blank" href = '.$rows["Title"].'">'.$rows["Title"].'</a> <br>';?></td>
 	</tr>
  
 <?php }
 ?>
 
-<?php
-	$query = "SELECT * FROM POSTS";
-	$result = $conn->query($query);     	 
-    
-?>
-
-<table border = "1px" style= "width:100%; line-height:30px;">
-<t>
-<th colspan = "8"> <h2>Posts </h2></th>
-
-</t>
-
-<tr>
-	<th> Author </th>
-	<th> Time </th>
-	<th> Forum Title </th>
-	<th> Post </th>
-    <th> Category </th>
-
-    
-</tr>
-
-<?php
-	while($rows = $result -> fetch_assoc()){
-
-?>
-	<tr>
-	<td><?php echo $rows["postAuthor"]; ?></td>
-	<td><?php echo $rows["postTime"]; ?></td>
-	<td><?php echo $rows["fTitle"]; ?></td>
-	<td><?php echo $rows["Data"]; ?></td>
-	<td><?php echo $rows["Category"]; ?></td>
-
-
-
-	</tr>
-<?php }
-?>
-
- 
 
 </table>
 
 
 </body>
 </html>
-
