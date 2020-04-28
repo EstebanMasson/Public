@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php include 'header.php';?>
+
+<?php include 'header.php';?>
 <title>NJ forum Hub</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -86,11 +87,10 @@ echo "</center>";
 
 ?>
 	<tr>
-  <td> <?php echo '<a href = "'.$rows["Title"].'">'.$rows["Title"].'</a><br>';?></td>
-    <td><?php echo $rows["Length"]; ?></td>
-    <td><?php echo $rows["Topic"]; ?></td>
-    <td><?php echo $rows["Date_made"]; ?></td>
-
+	    <td class = "mdc-data-table_cell"><?php echo '<a target = "_blank" href = "http://localhost/welcome.php"'.$rows["Title"].'">'.$rows["Title"].'</a> <br>';?></td>
+	    <td><?php echo $rows["Length"]; ?></td>
+	    <td class = "mdc-data-table_cell"><?php echo '<a target = "_blank" href = "http://localhost/welcome.php"'.$rows["Topic"].'">'.$rows["Topic"].'</a> <br>';?></td>
+	    <td><?php echo $rows["Date_made"]; ?></td>
 	</tr>
  
 <?php }
