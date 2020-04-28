@@ -25,7 +25,7 @@ header a {
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 50px;
   line-height: 25px;
   border-radius: 4px;
 }
@@ -65,9 +65,9 @@ header a {
 </head>
 
 <div class="header">
-  <a href="#default" class="logo">NJ Forum Hub</a>
+  <a href="index.php" class="logo">NJ Forum Hub</a>
   <div class="header-right">
-    <a class="active" href="showTables.php">Home</a>
+    <a class="active" href="index.php">Home</a>
     <a href="createUser.php">New User</a>
     <a href="surveys.php">Surveys</a>
     <a href="forums.php">Forums</a>
