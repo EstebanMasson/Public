@@ -38,8 +38,8 @@ li {listt-style: none;}
             <div style = "margin:30px">
                
                <form action = "" method = "post">
-                  <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                  <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
+                  <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br /> <!--user insertion-->
+                  <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br /> <!--password insertion-->
                   <input type = "submit" value = " Submit "/><br />
                </form>
                
@@ -64,6 +64,7 @@ require_once ('users.php'); // registering a user into the database
 <?php
 
    session_start();
+// connecting to the database
   $dbhost = "localhost";
   $dbuser = "root";
   $dbpass = "";
@@ -89,9 +90,9 @@ require_once ('users.php'); // registering a user into the database
          session_register("myusername");
          $_SESSION['login_user'] = $myusername;
          
-         header("Location: http://localhost/forums.php");
+         header("Location: http://localhost/showTables.php"); // redirects to the showTables.php if user is found 
       }else {
-         $error = "Your Login Name or Password is invalid";
+         $error = "Your Login Name or Password is invalid"; // notify user of invalid login information
       }
    }
 ?>
