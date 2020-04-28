@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <head>
+
+<!--Background and header tab navigation -->
 <?php include 'header.php';?>
 	
 <title>NJ forum Hub</title>
@@ -14,10 +16,9 @@ li {listt-style: none;}
 
 </head>
 
-<body style = "background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg);">
-
 <h1 style="text-align:center" class="title">NJforum Website</h1>
 
+<!--Buttons to access original website and go back to previous page-->
 <div class = "tabContainer">
 
 	<div class= "buttonContainer">
@@ -42,6 +43,7 @@ li {listt-style: none;}
 
 <ul>
 
+<!--Form for user to create new account-->
 <form name="insert" action="createUser.php" method="POST" autocomplete = "off">
 
 <li>First Name:</li><input type="text" name="fName" />
@@ -53,7 +55,7 @@ li {listt-style: none;}
 <li>Password:</li><input type="password" name="Password" />
 
 <br>
-
+<!--Submit user input to database-->
 <input type="submit" value="submit"/>
 
 </form>
@@ -61,7 +63,7 @@ li {listt-style: none;}
 </ul>
 
  <div>
-
+	<!--Sign in form-->
     	<div style = "float: left; " align = "left">
 
        	<h1>Sign In</h1>
@@ -73,7 +75,8 @@ li {listt-style: none;}
              	<label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
 
              	<label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-
+		<!--Check if user actually exist-->
+		<!--Function still being worked on-->
              	<input type = "submit" value = " Submit "/><br />
 
           	</form>
@@ -81,52 +84,48 @@ li {listt-style: none;}
     	</div>
  	</div>
 <?php
+//connect to databse
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
 $db = "NJforum";
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
+//check if user input is valid
 if(!(empty($_POST['Username']) || empty($_POST['Password']) || empty($_POST['fName']) || empty($_POST['fName'])))
 {
 	$Username = $_POST['Username'];
 	$Password = $_POST['Password'];
 	$fName = $_POST['fName'];
 	$lName = $_POST['lName'];
-
+	
+	//check if username being made is not already made
 	$query = "SELECT * FROM USERS WHERE Username = '$Username'";
-
 	$result = mysqli_query($conn, $query);
+	if(mysqli_num_rows($result)>0)
+		echo "ERROR: Username Already Exist";
 
-	if(mysqli_num_rows($result)>0)	{
+	else
+	{
+		//username is valid create new user to database
+		$sql = "INSERT INTO USERS (Username, Password, fName, lName) VALUES
+			('$Username','$Password','$fName','$lName')";
 
-   	echo "ERROR: Username Already Exist";
-	} else {
+	if(mysqli_query($conn, $sql))
+		echo "Record added Succesfully";
+	else
+		echo "ERROR: could not add record $sql" . mysqli_error($conn);
 
-	$sql = "INSERT INTO USERS (Username, Password, fName, lName) VALUES
-
-	('$Username','$Password','$fName','$lName')";
-
-	if(mysqli_query($conn, $sql)){
-
-   	echo "Record added Succesfully";
-
-	} else {
-
-   	echo "ERROR: could not add record $sql" . mysqli_error($conn);
-
-	}
-
+	//if every query ran correctly proceed to showTables page
 	header("Location: showTables.php");
-
 	exit();
 	}
 }
 
+//as long as the fields are not fully filled out then keepp tellin user to fill it out
 if(empty($Username) || empty($Password) || empty($fName) || empty($lName)){
 
 	echo "All fields are Mandatory\r\n";
-
 	exit;
 }
 ?>
