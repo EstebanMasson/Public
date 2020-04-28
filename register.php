@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<?php include 'header';?>
+<?php include 'header';?> // get the header file to be displayed on the website 
 <style>
 li {listt-style: none;}
 
 </style>
 </head>
 
-
+<!--background picture -->
 <body style = "background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg);">
 
-<h1 style="text-align:center" class="title">NJforum Website</h1>
+<h1 style="text-align:center" class="title">NJforum Website</h1> <!--Title of our website-->
 <html>
    
    <head>
@@ -23,10 +23,10 @@ li {listt-style: none;}
 	<div class = "tabContainer">
     <div class= "buttonContainer">
     <form action = "http://srhub.org">
-   		 <button type = "submit" >NJSR Hub Website</button>
+   		 <button type = "submit" >NJSR Hub Website</button> <!--NJSR Hub button links to the NJSRHub website-->
     </form>
     <form action = "http://localhost/forums.php">
-   		 <button type = "submit" >Forums</button>
+   		 <button type = "submit" >Forums</button> <!--Forum button links to the forums.php file-->
     </form>
 	</div>
 </div>
@@ -57,10 +57,10 @@ li {listt-style: none;}
 </html>
 
 <?php
-require_once ('users.php');
+require_once ('users.php'); // registering a user into the database
 ?>
 
-
+<!--creating a new user-->
 <?php
 
    session_start();
@@ -76,7 +76,7 @@ require_once ('users.php');
       $myusername = mysqli_real_escape_string($db,$USERS['Username']);
       $mypassword = mysqli_real_escape_string($db,$USERS['Password']); 
       
-      $sql = "SELECT Username FROM USERS WHERE Username = '$myusername' and Password = '$mypassword'";
+      $sql = "SELECT Username FROM USERS WHERE Username = '$myusername' and Password = '$mypassword'"; // find user in the database 
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $active = $row['active'];
