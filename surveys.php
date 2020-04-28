@@ -9,21 +9,21 @@
 
 </head>
 
-<body style = "background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg);">
+<body style = "background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg);"> <!--background image-->
 
 
 <div class = "tabContainer">
 	<div class= "buttonContainer">
 
     	<form action = "http://localhost/forums.php">
-    	<button type="submit">Go Back</button>   	 
+    	<button type="submit">Go Back</button>   <!--Return button to the previous forums page -->	 
 	</form>
 	</div>
 </div>
 
 <h1 style="text-align:center" class="title"> Surveys </h1>
 
-
+<!--Button that allows for hiding and showing surveys table -->
 <input type="Button" onClick="hideShowTable()" value="Show/Hide All Surveys" id="toggleSurveys"></input>
 
 <script>
@@ -41,9 +41,12 @@ $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
 $db = "NJforum";
+//connecting to database called NJforum
 
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
+//creates a drop down menu of survey topics for user to pick from 
+//that gets updated from database as more are added
 $dropdownResult = mysqli_query($conn,"SELECT * FROM SURVEY");
 echo "<center>";
 echo "<hr/>";
@@ -66,7 +69,7 @@ echo "</center>";
 	$result = $conn->query($query);     	 
     
 ?>
-
+<!--makes Survey table -->
 <table id="surveyTable" border = "2%" style= "width:100%; line-height:150%;">
 
 <t>
@@ -86,6 +89,7 @@ echo "</center>";
 	while($rows = $result -> fetch_assoc()){
 
 ?>
+<!-- Displays survey table-->
 	<tr>
 	    <td class = "mdc-data-table_cell"><?php echo '<a target = "_blank" href = "http://localhost/welcome.php"'.$rows["Title"].'">'.$rows["Title"].'</a> <br>';?></td>
 	    <td><?php echo $rows["Length"]; ?></td>
