@@ -46,17 +46,13 @@
 
    </form>
 
-   	<form action = "http://localhost/forums.php">
-
-       	<button type = "submit" >Forums</button>
-
-   </form>
+   	
 
 	</div>
 
 </div style = "float: left;">
 
-<h2>Enter New User Data</h2>
+<h2 style = "color: white">Enter New User Data</h2>
 
 <ul>
 
