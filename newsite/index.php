@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Projection by TEMPLATED</title>
+		<title>NJ Forum</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -16,11 +16,11 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="index.html" class="logo"><strong>Projection</strong> by TEMPLATED</a>
+					<a href="index.php" class="logo"><strong>NJ FORUM</strong></a>
 					<nav id="nav">
-						<a href="index.html">Home</a>
-						<a href="generic.html">Generic</a>
-						<a href="elements.html">Elements</a>
+						<a href="index.php">Home</a>
+						<a href="generic.php">SignIn/SignUp</a>
+						<a href="elements.php">Surveys</a>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
@@ -30,107 +30,150 @@
 			<section id="banner">
 				<div class="inner">
 					<header>
-						<h1>Welcome to Projection</h1>
+						<h1>Welcome to NJ Forum</h1>
+						
 					</header>
 
-					<div class="flex ">
+<h1 style="text-align:center" class="title">  </h1>
+<?php
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$db = "NJforum";
 
-						<div>
-							<span class="icon fa-car"></span>
-							<h3>Aliquam</h3>
-							<p>Suspendisse amet ullamco</p>
-						</div>
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
-						<div>
-							<span class="icon fa-camera"></span>
-							<h3>Elementum</h3>
-							<p>Class aptent taciti ad litora</p>
-						</div>
-
-						<div>
-							<span class="icon fa-bug"></span>
-							<h3>Ultrices</h3>
-							<p>Nulla vitae mauris non felis</p>
-						</div>
-
-					</div>
-
-					<footer>
-						<a href="#" class="button">Get Started</a>
-					</footer>
-				</div>
-			</section>
+?>
 
 
-		<!-- Three -->
-			<section id="three" class="wrapper align-center">
-				<div class="inner">
-					<div class="flex flex-2">
-						<article>
-							<div class="image round">
-								<img src="images/pic01.jpg" alt="Pic 01" />
-							</div>
-							<header>
-								<h3>Lorem ipsum<br /> dolor amet nullam</h3>
-							</header>
-							<p>Morbi in sem quis dui placerat ornare. Pellentesquenisi<br />euismod in, pharetra a, ultricies in diam sed arcu. Cras<br />consequat  egestas augue vulputate.</p>
-							<footer>
-								<a href="#" class="button">Learn More</a>
-							</footer>
-						</article>
-						<article>
-							<div class="image round">
-								<img src="images/pic02.jpg" alt="Pic 02" />
-							</div>
-							<header>
-								<h3>Sed feugiat<br /> tempus adipicsing</h3>
-							</header>
-							<p>Pellentesque fermentum dolor. Aliquam quam lectus<br />facilisis auctor, ultrices ut, elementum vulputate, nunc<br /> blandit ellenste egestagus commodo.</p>
-							<footer>
-								<a href="#" class="button">Learn More</a>
-							</footer>
-						</article>
-					</div>
-				</div>
-			</section>
+<?php
+	$query = "SELECT * FROM FORUM_CATEGORIES";
+	$result = $conn->query($query);     	 
+    
+?>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
+<table border = "1px" style= "width:100%; line-height:40px;">
 
-					<h3>Get in touch</h3>
+<t>
+<div style= "text-align:center"><th colspan = "8"> <h2 style= "color: white" > Forums </h2></th></div>
 
-					<form action="#" method="post">
+</t>
 
-						<div class="field half first">
-							<label for="name">Name</label>
-							<input name="name" id="name" type="text" placeholder="Name">
-						</div>
-						<div class="field half">
-							<label for="email">Email</label>
-							<input name="email" id="email" type="email" placeholder="Email">
-						</div>
-						<div class="field">
-							<label for="message">Message</label>
-							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-						</div>
-						<ul class="actions">
-							<li><input value="Send Message" class="button alt" type="submit"></li>
-						</ul>
-					</form>
 
-					<div class="copyright">
-						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
-					</div>
+<?php
+	while($rows = $result -> fetch_assoc()){
 
-				</div>
-			</footer>
+?>
+	<tr>
+	<td><?php echo $rows["Title"]; ?></td>
+	</tr>
+ 
+<?php }
+?>
 
+
+<?php
+	$query = "SELECT * FROM POSTS";
+	$result = $conn->query($query);     	 
+    
+?>
+
+<table border = "1px" style= "width:100%; line-height:30px;">
+<t>
+<th colspan = "15" > <h2 style = "color: white" >Posts</h2></th>
+
+</t>
+
+
+<tr>
+	<th style = "color: white"> Author </th>
+	<th style = "color: white"> Time </th>
+	<th style = "color: white"> Forum Title </th>
+	<th style = "color: white"> Post </th>
+    <th style = "color: white"> Category </th>
+
+    
+</tr>
+
+<?php
+	while($rows = $result -> fetch_assoc()){
+
+?>
+	<tr>
+	<td><?php echo $rows["postAuthor"]; ?></td>
+	<td><?php echo $rows["postTime"]; ?></td>
+	<td><?php echo $rows["fTitle"]; ?></td>
+	<td><?php echo $rows["Data"]; ?></td>
+	<td><?php echo $rows["Category"]; ?></td>
+
+
+
+	</tr>
+<?php }
+?>
+
+<?php
+	$query = "SELECT * FROM COMMENTS";
+	$result = $conn->query($query);     	 
+    
+?>
+
+<table border = "1px" style= "width:100%; line-height:40px;">
+
+<t>
+<th> <h2 style = "color: white">Comments </h2></th>
+
+</t>
+
+<tr>
+	<th style = "color: white"> Post Author </th>
+	<th style = "color: white"> Comment Author </th>
+	<th style = "color: white"> Comment Time </th>
+    <th style = "color: white"> Comment </th>
+    
+</tr>
+
+<?php
+	while($rows = $result -> fetch_assoc()){
+
+?>
+	<tr>
+	<td><?php echo $rows["pAuthor"]; ?></td>
+    <td><?php echo $rows["cAuthor"]; ?></td>
+	 <td><?php echo $rows["cTime"]; ?></td>
+    <td><?php echo $rows["cData"]; ?></td>
+
+
+	</tr>
+ 
+<?php }
+?>
+
+
+				
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+<div class="flex ">
+
+						<div>
+							<span class="icon fa-cloud"></span>
+							<h3> Go To NJSR Hub Website</h3>
+							<p>New Jersey Sustainability Reporting Hub</p>
+						</div>
+
+					</div>
+
+					<footer>
+						<a href="https://srhub.org/" class="button" target="_blank">Go Now</a>
+					</footer>
+				</div>
+			</section>
+
+
 
 	</body>
 </html>
