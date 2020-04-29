@@ -90,10 +90,10 @@ echo "</center>";
 
 </t>
 <tr>
-	<th> Title </th>
-	<th> Length </th>
-	<th> Topic</th>
-	<th> Date Added </th>
+	<th style= "color: white"> Title </th>
+	<th style= "color: white"> Length </th>
+	<th style= "color: white"> Topic</th>
+	<th style= "color: white"> Date Added </th>
 
     
 </tr>
