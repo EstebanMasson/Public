@@ -19,8 +19,8 @@
 					<a href="index.php" class="logo"><strong>NJ FORUM</strong></a>
 					<nav id="nav">
 						<a href="index.php">Home</a>
-						<a href="generic.php">SignIn/SignUp</a>
-						<a href="elements.php">Surveys</a>
+						<a href="login.php">SignIn/SignUp</a>
+						<a href="surveys.php">Surveys</a>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
