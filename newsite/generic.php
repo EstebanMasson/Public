@@ -16,7 +16,7 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="index.html" class="logo"><strong>Projection</strong> by TEMPLATED</a>
+					<a href="index.php" class="logo"><strong>Projection</strong> by TEMPLATED</a>
 					<nav id="nav">
 						<a href="index.php">Home</a>
 						<a href="generic.php">Generic</a>
