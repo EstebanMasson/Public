@@ -1,44 +1,45 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
 <html>
-<head>
-	<?php include 'header';?>
-<title>NJ forum Hub</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<head>
+		<title>NJ Forum</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
 
-<style>
-li {listt-style: none;}
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.php" class="logo"><strong>NJ FORUM</strong></a>
+					<nav id="nav">
+						<a href="index.php">Home</a>
+						<a href="login.php">SignIn/SignUp</a>
+						<a href="surveys.php">Surveys</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
 
-</style>
-</head>
-
-<body style = "background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg);"> <!--Sets the background image -->
-<h1 style="text-align:center" class="title">NJforum Website</h1>
-<div class = "tabContainer">
-	<div class= "buttonContainer">
-    <form action = "http://srhub.org">
-   		 <button type = "submit" >NJSR Hub Website</button> <!--Button takes user to NJSR Website -->
-    </form>
-    <form action = "http://localhost/createUser.php">
-   		 <button type = "submit" >Register/Login</button> <!--Button takes user back to Login page -->
-    </form>
-
-    	<form action = "http://localhost/surveys.php">
-    	<button type="submit">Surveys</button>   <!--Button takes user to Surveys page to view surveys -->
-	</form>
- 
-	</div>
-</div>
-
-<h1 style="text-align:center" class="title"> All Tables </h1>
-
-
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>Welcome to NJ Forum</h1>
+						
+					</header>
 <?php
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$db = "NJforum"; //having variables makes information easy to change in future
+$db = "NJforum";
 
-$conn = new mysqli($dbhost, $dbuser, $dbpass, $db); //connects website to database called NJforum
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
 ?>
 
@@ -49,7 +50,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db); //connects website to databa
     
 ?>
 
-<table border = "1px" style= "width:100%; line-height:40px;"> <!--makes a table for forums -->
+<table border = "1px" style= "width:1050px; line-height:40px;">
 
 <t>
 <th colspan = "8"> <h2>Forums </h2></th>
@@ -62,7 +63,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db); //connects website to databa
 
 ?>
 	<tr>
-	<td><?php echo $rows["Title"]; ?></td> <!--displays the forum table -->
+	<td><?php echo $rows["Title"]; ?></td>
 	</tr>
  
 <?php }
@@ -78,9 +79,9 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db); //connects website to databa
     
 ?>
 
-<table border = "1px" style= "width:100%; line-height:30px;">
+<table border = "1px" style= "width:1050px; line-height:30px;">
 <t>
-<th colspan = "15"> <h2>Posts</h2></th> <!-- displays posts in a table-->
+<th colspan = "15"> <h2>Posts</h2></th>
 
 </t>
 
@@ -118,7 +119,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db); //connects website to databa
     
 ?>
 
-<table border = "1px" style= "width:100%; line-height:40px;"> <!--makes a comments table-->
+<table border = "1px" style= "width:1050px; line-height:40px;">
 
 <t>
 <th colspan = "8"> <h2>Comments </h2></th>
@@ -129,7 +130,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db); //connects website to databa
 	<th> Post Author </th>
 	<th> Post Time </th>
 	<th> Comment Author </th>
-	<th> Comment Time </th> <!-- displays comments in a table-->
+	<th> Comment Time </th>
     <th> Comment </th>
     
 </tr>
@@ -152,7 +153,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db); //connects website to databa
 ?>
 
 
-<div style = "float: left;"> <!-- form for user to insert a post-->
+<div style = "float: left;">
 <h2>Insert A Post</h2>
 <ul>
 <form name="insert" action="showTables.php" method="POST" autocomplete = "off" >
@@ -166,9 +167,9 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $db); //connects website to databa
 <input type="submit" value="submit"/>
 </form>
 </ul>
-</div> 
+</div>
 
-<div style = "float: left;"> <!--form for user to insert a comment -->
+<div style = "float: left;">
 <h2>Insert A Comment</h2>
 <ul>
 <form name="insert" action="showTables.php" method="POST" autocomplete = "off" >
@@ -189,8 +190,8 @@ if(isset($_POST['postAuthor']) && isset($_POST['fTitle']) && isset($_POST['Data'
 	$fTitle = $_POST['fTitle'];
 	$Data = $_POST['Data'];
    
-	//the post the user inserts will be reflected in the database
-	$sql = "INSERT INTO POSTS (postAuthor,fTitle,Data) VALUES ('$postAuthor', '$fTitle','$Data')"; 
+
+	$sql = "INSERT INTO POSTS (postAuthor,fTitle,Data) VALUES ('$postAuthor', '$fTitle','$Data')";
 
 	if(mysqli_query($conn, $sql)){
     	echo "Record added Succesfully";
@@ -207,7 +208,7 @@ if(isset($_POST['cAuthor']) && isset($_POST['cData']))
 	$cAuthor = $_POST['cAuthor'];
 	$cData = $_POST['cData'];
 
- 	//the comments user inputs will be reflected in the database
+ 
 	$sql = "INSERT INTO COMMENTS (pAuthor,cAuthor,cData) VALUES ('$pAuthor','$cAuthor', '$cData')";
 
 	if(mysqli_query($conn, $sql)){
@@ -228,5 +229,11 @@ if(isset($_POST['cAuthor']) && isset($_POST['cData']))
 </table>
 
 
-</body>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
