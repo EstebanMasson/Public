@@ -18,8 +18,9 @@ NJForum is an extension to the pre-existing site known as NJSRHUB or www.srhub.o
 1) Download the repo locally on your computer
 2) Insure that XAMPP is downloaded locally or a webhost with php and sql is configured
 3) Move the github files to the root directory of your web server. If using XAMPP in linux, move the files to opt/lampp/htdocs. 
-4) With XAMPP running use the phpMyAdmin database to create a database and run the commands found in create_tables.sql
+4) With XAMPP installed and all servers running, proceed to localhost/phpmyadmin in your browser. Use phpMyAdmin to create a new database and run the commands found in create_tables.sql
 5) Populate the database and site is fully functional
+6) To view and interact with the site, proceed to localhost/index.php in your browser (assuming index.php along with all the files from this GitHub repo are in opt/lampp/htdocs. 
 
 ## Issues/Features
 For ongoing issues and feature requests visit the Issues tab for further information.
