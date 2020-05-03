@@ -5,9 +5,7 @@ NJForum is an extension to the pre-existing site known as NJSRHUB or www.srhub.o
 ## Interface: 
 
 ![image](https://i.imgur.com/lhz1j4A.png)
-![img] (https://i.imgur.com/T62OYZY.png)
-
-
+[Imgur](https://i.imgur.com/T62OYZY.png)
 ## Technologies/Packages Used
 1) HTML
 2) CSS
