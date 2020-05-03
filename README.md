@@ -5,7 +5,7 @@ NJForum is an extension to the pre-existing site known as NJSRHUB or www.srhub.o
 ## Interface: 
 
 ![image](https://i.imgur.com/lhz1j4A.png)
-![image](https://i.imgur.com/T62OYZY.png)
+![image] ([Imgur](https://i.imgur.com/T62OYZY.png))
 
 
 ## Technologies/Packages Used
@@ -25,6 +25,9 @@ NJForum is an extension to the pre-existing site known as NJSRHUB or www.srhub.o
 
 ## Issues/Features
 For ongoing issues and feature requests visit the Issues tab for further information.
+
+## Future Work
+The sign-in feature is not working as expected as of now, therefore it can be implemented to search the database for the username and password the user enters and let them proceed if a match is found. Furthermore, the database can be populated with survey questions, and their responses can be graphically displayed on the website (i.e. pie charts) as more and more users take the surveys. 
 
 ## Questions/Concerns
 The Wiki page has additional information regarding the project that can answer any questions you may have.
