@@ -18,3 +18,12 @@ NJForum is an extension to the pre-existing site known as NJSRHUB or www.srhub.o
 1) Download the repo locally on your computer
 2) Open your console and run the commands found in create_tables.sql
 3) Populate the database and site is fully functional
+
+## Issues/Features
+For ongoing issues and feature requests visit the Issues tab for further information.
+
+## Questions/Concerns
+The Wiki page has additional information regarding the project that can answer any questions you may have.
+
+## License
+Project is Licensed under the MIT License
